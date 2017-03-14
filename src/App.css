@@ -1,0 +1,134 @@
+/*
+
+App
+  Playback
+  
+  Next-frame
+
+  Timeline
+    marker
+      current
+      previouse
+      Subsequent
+      inactive
+      active
+
+    Play-head
+
+  Control-bar
+
+*/
+
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 1s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #333;
+  height: 150px;
+  padding: 20px;
+  color: white;
+
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(40deg); }
+}
+
+.playback {
+  position: inline;
+  float:left;
+  background-color: #333;
+  height: 100%;
+  width:100%;
+  padding: 0px;
+  color: white;
+}
+
+.playback .player{
+  position: inline;
+  float:left;
+  background-image: url('../public/images/frame-10.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 500px;
+
+}
+
+.next-frame {
+  background-color: #333;
+  height: 1000px;
+  color: #333;
+}
+
+.next-frame .frame{
+  position: inline;
+  float:left;
+  background-image: url('../public/images/frame-10.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 1000px;
+
+}
+
+.timeline {
+  position: absolute;
+  bottom:10px;
+  width:100%;
+  background-color: #71DBC6;
+  height: 100px;
+  color: white;
+  overflow: hidden;
+}
+
+.timeline .frame{
+
+  position: absolute;
+  padding: 0px;
+  height:100px;
+  left:0;
+
+}
+
+.timeline .frame .marker{
+
+  position: absolute;
+  background-color: #333;
+  width:1em;
+  height: 1em;
+  padding: 10px;
+  font-size: 14pt;
+}
+
+.timeline .frame .frame-image{
+  position: absolute;
+  background-image: url('../public/images/frame-10.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 100px;
+
+}
+
+
+.timeline .play-head {
+  background-color: #333;
+  position: absolute;
+  height: 100px;
+  width:10px;
+  padding: 0px;
+  left:0%;
+}
