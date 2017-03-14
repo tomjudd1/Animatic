@@ -11,7 +11,6 @@ class Timeline extends Component {
       markers: Array(9).fill(null),
       data: this.props.data,
       frameCount: this.props.data.length,
-      currentTime: 0,
       playheadPos: 70
 
     };
@@ -20,9 +19,10 @@ class Timeline extends Component {
 
   renderSquare(i, img) {
 
-    var xPos = 100/(this.state.frameCount) * (i-1);
+    // var xPos = 100/(this.state.frameCount) * (i-1);
+    var xPos = 100 * this.state.data[i].timecodeDP; 
 
-    return <Marker  value={i} 
+    return <Marker  value={this.state.data[i].id} 
                     key={i} 
                     position={xPos} 
                     img={img} 
@@ -42,7 +42,7 @@ class Timeline extends Component {
 
         
 
-        {this.state.data.map((frame, i) => this.renderSquare(frame.id, frame.img ) ) }
+        {this.state.data.map((frame, i) => this.renderSquare(i, frame.img ) ) }
         
         <div className="play-head" style={{left: this.props.playheadPos + '%'}}>
         </div> 
