@@ -4,6 +4,7 @@ import Playback from'./Comps/Playback.js';
 import NextFrame from'./Comps/NextFrame.js';
 import Timeline from'./Comps/Timeline.js';
 
+
 class App extends Component {
 
   constructor() {
@@ -11,7 +12,7 @@ class App extends Component {
     this.state = {
       currentTime:0,
       playheadPos:0,
-      duration: 3000,
+      duration: 10000,
       tickInterval: 100,
       frameData: 
          [
@@ -76,7 +77,10 @@ class App extends Component {
     };
   }
 
-
+  eventLogger = (e: MouseEvent, data: Object) => {
+    console.log('Event: ', event);
+    console.log('Data: ', data);
+  };
 
   componentDidMount() {
 

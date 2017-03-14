@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Marker from'../Comps/Marker.js';
-import SoundPlayer from'../Comps/SoundPlayer.js';
+//import SoundPlayer from'../Comps/SoundPlayer.js';
 
 
 class Timeline extends Component {
@@ -8,6 +8,7 @@ class Timeline extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      markers: Array(9).fill(null),
       data: this.props.data,
       frameCount: this.props.data.length,
       currentTime: 0,
@@ -21,17 +22,17 @@ class Timeline extends Component {
 
     var xPos = 100/(this.state.frameCount) * (i-1);
 
-    return <Marker value={i} key={i} position={xPos} img={img} onClick={() => this.handleClick(i)} />;
+    return <Marker  value={i} 
+                    key={i} 
+                    position={xPos} 
+                    img={img} 
+                    onMouseDown={() => this.handleDragStart(i)} 
+                    onMouseMove={() => this.handleDragging(i)} 
+                    onMouseUp={() => this.handleDrop(i)} 
+                    />;
   }
 
-  handleClick(i) {
-    const markers = this.state.markers.slice();
-    markers[i] = 'X';
-    this.setState({
-        markers: markers,
-        xIsNext: !this.state.xIsNext,
-    });
-  }
+
 
   render() {
 
@@ -39,10 +40,8 @@ class Timeline extends Component {
 
       <div className="timeline"> 
 
-        <SoundPlayer />
-
-
         
+
         {this.state.data.map((frame, i) => this.renderSquare(frame.id, frame.img ) ) }
         
         <div className="play-head" style={{left: this.props.playheadPos + '%'}}>

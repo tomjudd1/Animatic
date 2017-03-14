@@ -9,20 +9,20 @@ class SoundPlayer extends Component {
 
 	handleSongPlaying(e) {
 		playHeadPosition = e.position / e.duration * 100 +'%';
-		console.log(playHeadPosition);
+		//console.log(playHeadPosition);
 	}
 
 	function
 
 	handleSongFinishedPlaying() {
 
-		console.log("FILE FINSHED PLAYING");
+		//console.log("FILE FINSHED PLAYING");
 
 	}
 
 	handlePlayPause(){
 
-		console.log("playPause Pressed");
+		//console.log("playPause Pressed");
 
 	}
 
