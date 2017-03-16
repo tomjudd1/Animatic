@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Playback from'./Comps/Playback.js';
-import NextFrame from'./Comps/NextFrame.js';
-import Timeline from'./Comps/Timeline.js';
-
+import Playback from'./components/Playback.js';
+import NextFrame from'./components/NextFrame.js';
+import Timeline from'./components/Timeline.js';
 
 class App extends Component {
 
@@ -20,7 +19,7 @@ class App extends Component {
                "id":1,
                "note1":"Storyboarding can be fiddly",
                "img":"../images/frame-3.jpg",
-               "timecodeDP":0
+               "timecodeDP":0.2
             },
         
             {
@@ -53,6 +52,7 @@ class App extends Component {
   eventLogger = (e: MouseEvent, data: Object) => {
     console.log('Event: ', event);
     console.log('Data: ', data);
+
   };
 
   componentDidMount() {

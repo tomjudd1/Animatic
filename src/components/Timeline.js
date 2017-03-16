@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Marker from'../Comps/Marker.js';
+import Marker from'../components/Marker.js';
 //import SoundPlayer from'../Comps/SoundPlayer.js';
 
 
