@@ -4,8 +4,9 @@ const Marker = ({ onClick, added, number, text, img, timecode  }) => (
   <div
     onClick={onClick} className="marker"
     style={{
-      opacity: added ? '1' : '0.5',
-      left: timecode * 100 + "%"
+      //opacity: added ? '1' : '0.5',
+      //left: timecode * window.innerWidth + "px",
+      //transform: 'translate(0px,0px)' 
     }}
   >
     <span className="noselect">{number}</span>

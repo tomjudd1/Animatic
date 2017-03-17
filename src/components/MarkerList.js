@@ -4,22 +4,26 @@ import Draggable from 'react-draggable';
 
 
 
-const MarkerList = ({ markers, onMarkerClick }) => (
+const MarkerList = ({ markers, onMarkerClick, onMarkerMoved }) => (
+
 
   <div className="marker-list">
     
-    {markers.map(marker =>
+    {markers.map(marker=>
       
       <Draggable
+        key={marker.id}
         axis="x"
         handle=".marker"
+        bounds={{left: 0, right: window.innerWidth-20}}
         defaultPosition={{x: 0, y: 0}}
         position={null}
-        grid={[25, 25]}
+        grid={[5, 5]}
         zIndex={100}
         onStart={MarkerList.handleStart}
         onDrag={MarkerList.handleDrag}
-        onStop={MarkerList.handleStop}>
+        onStop={(e, position) => onMarkerMoved(marker.id, position.x, window.innerWidth)}
+        >
       
         <div>  
 
@@ -52,10 +56,14 @@ MarkerList.propTypes = {
   onMarkerClick: PropTypes.func.isRequired
 }
 
-
-MarkerList.eventLogger = (e: MouseEvent, data: Object) => {
+MarkerList.eventLogger=(e: MouseEvent, data: Object) => {
     console.log('Event: ', event);
     console.log('Data: ', data);
 }
+
+
+
+  
+
 
 export default MarkerList

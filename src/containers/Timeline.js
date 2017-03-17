@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
-import { toggleMarker } from '../actions'
+import { toggleMarker, updateMarker } from '../actions'
 import MarkerList from '../components/MarkerList'
+import Playhead from '../components/Playhead'
 
 const getVisibleMarkers = (markers, filter) => {
   switch (filter) {
@@ -16,11 +17,12 @@ const getVisibleMarkers = (markers, filter) => {
 }
 
 const mapStateToProps = (state) => ({
-  markers: getVisibleMarkers(state.markers, state.visibilityFilter)
+  markers: getVisibleMarkers(state.markers, state.visibilityFilter),
 })
 
 const mapDispatchToProps = {
-  onMarkerClick: toggleMarker
+  onMarkerClick: toggleMarker,
+  onMarkerMoved: updateMarker
 }
 
 const Timeline = connect(

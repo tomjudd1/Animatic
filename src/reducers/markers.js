@@ -11,13 +11,19 @@ const marker = (state, action) => {
       }
     case 'TOGGLE_MARKER':
       if (state.id !== action.id) {
-        added: false
         return state
       }
-
       return {
         ...state,
         added: true
+      }
+    case 'UPDATE_MARKER':
+      if (state.id !== action.id) {
+        return state
+      }
+      return {
+        ...state,
+        timecode: action.posX / action.width
       }
     default:
       return state
@@ -35,6 +41,11 @@ const markers = (state = [], action) => {
       return state.map(t =>
         marker(t, action)
       )
+    case 'UPDATE_MARKER':
+      return state.map(t =>
+        marker(t, action)
+      )
+
     default:
       return state
   }
