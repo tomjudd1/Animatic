@@ -1,51 +1,21 @@
-import React, { Component } from 'react';
+import React, { PropTypes } from 'react'
 
-// REDUX --- 
-import { connect } from 'react-redux';
-import * as actions from '../actions';
+const Marker = ({ onClick, added, number, text, img, timecode  }) => (
+  <div
+    onClick={onClick} className="marker"
+    style={{
+      opacity: added ? '1' : '0.5',
+      left: timecode * 100 + "%"
+    }}
+  >
+    <span className="noselect">{number}</span>
+  </div>
+)
 
-let createHandlers = function(dispatch) {
-  let onClick = function(node, data) {
-    dispatch(actions.updateMarkerTimecodeDP(0));
-    console.log(data);
-  };
-
-  return {
-    onClick,
-    // other handlers
-  };
+Marker.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  added: PropTypes.bool.isRequired,
+  text: PropTypes.string.isRequired
 }
 
-// end REDUX --- 
-
-class Marker extends Component {
-
-	constructor(props) {
-	    super(props);
-	 	this.handlers = createHandlers(this.props.dispatch); // REDUX ------------------------------------------
-	    this.state = {
-	      	markerPos: props.position,
-	      	frameImage: { backgroundImage: "url(" +  props.img  + ")" }  
-  		};
-
-  	}	
-
-  	render(){
-  		return (
-
-		  			<div className="frame" style={{left: this.state.markerPos + '%'}} onClick={() => this.handlers.onClick()} >
-		  				<div className="frame-image" style={ this.state.frameImage }> 
-					  	</div>
-						<div className="marker" >
-					  		{this.props.value}
-					  	</div>
-					</div>
-				
-
-
-    	);
-  	}
-
-}
-
-export default connect()(Marker);
+export default Marker

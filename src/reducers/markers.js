@@ -3,28 +3,22 @@ const marker = (state, action) => {
     case 'ADD_MARKER':
       return {
         id: action.id,
+        number: action.number,
         text: action.text,
         img: action.img,
-        added: true,
-        timeCodeDP: action.timeCodeDP
+        timecode: action.timecode,
+        added: false
       }
-    case 'UPDATE_MARKER':
+    case 'TOGGLE_MARKER':
       if (state.id !== action.id) {
+        added: false
         return state
-      }
-      return {
-        ...state,
-        added: !state.added
-      }
-    case 'UPDATE_MARKER_TIMECODEDP':
-      if (state.id !== action.id) {
-        return state
-      }
-      return {
-        ...state,
-        timeCodeDP: action.timeCodeDP
       }
 
+      return {
+        ...state,
+        added: true
+      }
     default:
       return state
   }
@@ -37,11 +31,7 @@ const markers = (state = [], action) => {
         ...state,
         marker(undefined, action)
       ]
-    case 'UPDATE_MARKER':
-      return state.map(t =>
-        marker(t, action)
-      )
-    case 'UPDATE_MARKER_TIMECODEDP':
+    case 'TOGGLE_MARKER':
       return state.map(t =>
         marker(t, action)
       )
@@ -49,6 +39,5 @@ const markers = (state = [], action) => {
       return state
   }
 }
-
 
 export default markers

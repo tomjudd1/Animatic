@@ -1,22 +1,21 @@
-let nextMarkerID = 0
+let nextMarkerId = 0
+let nextMarkerNumber = 1
 
-export const addMarker = (text, img, timeCodeDP) => ({
+export const addMarker = (number,text,img,timecode) => ({
   type: 'ADD_MARKER',
-  id: nextMarkerID++,
+  id: nextMarkerId++,
+  number: nextMarkerNumber++,
   text: text,
   img: img,
-  added: true,
-  timeCodeDP: timeCodeDP
+  timecode: timecode
 })
 
-export const updateMarker = (id) => ({
-  type: 'UPDATE_MARKER',
-  id,
-
+export const setVisibilityFilter = (filter) => ({
+  type: 'SET_VISIBILITY_FILTER',
+  filter
 })
 
-export const updateMarkerTimecodeDP = (id, timeCodeDP) => ({
-  type: 'UPDATE_MARKER_TIMECODEDP',
-  timeCodeDP: timeCodeDP,
+export const toggleMarker = (id) => ({
+  type: 'TOGGLE_MARKER',
   id
 })

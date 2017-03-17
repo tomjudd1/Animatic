@@ -1,16 +1,17 @@
-import markers from './markers'
 
-describe('markers reducer', () => {
+import todos from './todos'
+
+describe('todos reducer', () => {
   it('should handle initial state', () => {
     expect(
-      markers(undefined, {})
+      todos(undefined, {})
     ).toEqual([])
   })
 
-  it('should handle UPDATE_MARKER', () => {
+  it('should handle ADD_TODO', () => {
     expect(
-      markers([], {
-        type: 'UPDATE_MARKER',
+      todos([], {
+        type: 'ADD_TODO',
         text: 'Run the tests',
         id: 0
       })
@@ -23,14 +24,14 @@ describe('markers reducer', () => {
     ])
 
     expect(
-      markers([
+      todos([
         {
           text: 'Run the tests',
           completed: false,
           id: 0
         }
       ], {
-        type: 'UPDATE_MARKER',
+        type: 'ADD_TODO',
         text: 'Use Redux',
         id: 1
       })
@@ -47,7 +48,7 @@ describe('markers reducer', () => {
     ])
 
     expect(
-      markers([
+      todos([
         {
           text: 'Run the tests',
           completed: false,
@@ -58,7 +59,7 @@ describe('markers reducer', () => {
           id: 1
         }
       ], {
-        type: 'UPDATE_MARKER',
+        type: 'ADD_TODO',
         text: 'Fix the tests',
         id: 2
       })
@@ -75,6 +76,35 @@ describe('markers reducer', () => {
         text: 'Fix the tests',
         completed: false,
         id: 2
+      }
+    ])
+  })
+
+  it('should handle TOGGLE_TODO', () => {
+    expect(
+      todos([
+        {
+          text: 'Run the tests',
+          completed: false,
+          id: 1
+        }, {
+          text: 'Use Redux',
+          completed: false,
+          id: 0
+        }
+      ], {
+        type: 'TOGGLE_TODO',
+        id: 1
+      })
+    ).toEqual([
+      {
+        text: 'Run the tests',
+        completed: true,
+        id: 1
+      }, {
+        text: 'Use Redux',
+        completed: false,
+        id: 0
       }
     ])
   })

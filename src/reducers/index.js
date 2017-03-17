@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 import markers from './markers'
+import visibilityFilter from './visibilityFilter'
 
 const animaticApp = combineReducers({
-  markers
+  markers,
+  visibilityFilter
 })
 
 export default animaticApp

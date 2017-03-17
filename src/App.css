@@ -84,7 +84,7 @@ App
 
 }
 
-.timeline {
+.marker-list {
   position: absolute;
   bottom:10px;
   width:100%;
@@ -94,7 +94,7 @@ App
   overflow: hidden;
 }
 
-.timeline .frame{
+.marker-list .frame{
 
   position: absolute;
   padding: 0px;
@@ -103,7 +103,7 @@ App
 
 }
 
-.timeline .frame .marker{
+.marker-list .marker{
 
   position: absolute;
   background-color: #333;
@@ -111,6 +111,7 @@ App
   height: 1em;
   padding: 10px;
   font-size: 14pt;
+  cursor: pointer;
 }
 
 .timeline .frame .frame-image{
@@ -131,4 +132,21 @@ App
   width:10px;
   padding: 0px;
   left:0%;
+}
+
+.my-draggable {
+    cursor: pointer;
+    width: 200px;
+    height: 200px;
+    background-color: #cca;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
