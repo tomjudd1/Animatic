@@ -9,7 +9,7 @@ const Marker = ({ onClick, added, number, text, img, timecode  }) => (
       //transform: 'translate(0px,0px)' 
     }}
   >
-    <span className="noselect">{number}</span>
+    <span className="noselect">{Math.floor(timecode*100)}</span>
   </div>
 )
 

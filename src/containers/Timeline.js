@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { toggleMarker, updateMarker } from '../actions'
 import MarkerList from '../components/MarkerList'
-import Playhead from '../components/Playhead'
+
 
 const getVisibleMarkers = (markers, filter) => {
   switch (filter) {

@@ -18,11 +18,11 @@ const MarkerList = ({ markers, onMarkerClick, onMarkerMoved }) => (
         bounds={{left: 0, right: window.innerWidth-20}}
         defaultPosition={{x: 0, y: 0}}
         position={null}
-        grid={[5, 5]}
+        grid={[2, 5]}
         zIndex={100}
         onStart={MarkerList.handleStart}
-        onDrag={MarkerList.handleDrag}
-        onStop={(e, position) => onMarkerMoved(marker.id, position.x, window.innerWidth)}
+        //onDrag={MarkerList.handleDrag}
+        onDrag={(e, position) => onMarkerMoved(marker.id, position.x, window.innerWidth)}
         >
       
         <div>  

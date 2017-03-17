@@ -15,6 +15,9 @@ const store = createStore(reducer)
 
 store.dispatch(actions.addMarker(1,"Storyboarding can be fiddly", "../images/frame-3.jpg", 0))
 store.dispatch(actions.addMarker(2,"Boords makes storyboardin", "../images/frame-7.jpg", 0.5))
+
+store.dispatch(actions.addSound(10000,"../sound/boordsVO.wav", false))
+
 //store.dispatch(actions.addMarker(3,"Work with your team", "../images/frame-8.jpg", 0.7))
 
 

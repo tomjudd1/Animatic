@@ -1,4 +1,5 @@
 let nextMarkerId = 0
+let nextSoundId = 0
 let nextMarkerNumber = 1
 
 export const addMarker = (number,text,img,timecode) => ({
@@ -25,4 +26,14 @@ export const updateMarker = (id, posX, width) => ({
   id,
   posX,
   width
+})
+
+// -- SOUND FILE STUFF
+
+export const addSound = (duration,file,playing) => ({
+  type: 'ADD_SOUND',
+  id: nextSoundId++,
+  duration: duration,
+  file: file,
+  playing: false  
 })
